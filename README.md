@@ -5,7 +5,7 @@ This utility takes as arguments your mysql user and password and a slave to tran
 
 The dump will be copy over to the slave and use the old classic way to apply a dump: ```mysql < dump.sql ```
 
-Thean it will execute ```CHANGE MASTER . . ``` and make for you master-slave servers automatically.
+Then it will execute ```CHANGE MASTER . . ``` and make for you master-slave servers automatically.
 
 ## Requirements
 - Python 2.4+
