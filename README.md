@@ -1,2 +1,2 @@
 # mysql-dumper
-Utility that dump mysql database into a slave, using mysqldump.
+Utility that dumps mysql database into a slave, using mysqldump.
