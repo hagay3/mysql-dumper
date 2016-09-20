@@ -58,7 +58,6 @@ mysql_replication_password = 'repl'
 mysql_master_connect_retry = '60'
 
 ## General Variables ##
-dump_dir = '/outbrain/mysql/dump_'+time.strftime("%d-%m-%Y")
 dump_name = 'dump_'+socket.gethostname()+'_'+time.strftime("%d-%m-%Y")+'.sql'
 mysql_version = runscript('mysqladmin -V | cut -d\' \' -f6 | cut -d\'-\' -f1 | cut -d\'.\' -f1,2')
 mysql_version = float(mysql_version)
@@ -80,6 +79,8 @@ mysql_datadir = runscript('cat '+mycnf+' | grep datadir')
 mysql_datadir = mysql_datadir.replace('datadir = ','').replace('\n','')
 if (mysql_datadir == ''):
     mysql_datadir = '/var/lib/mysql'
+    
+dump_dir = mysql_datadir+'/'+dump_'+time.strftime("%d-%m-%Y")
 
 #mysqldump arguments
 mysqldump_arguments = '--all-databases --events --flush-logs --routines --triggers --master-data=2 --single-transaction'
